@@ -18,13 +18,10 @@ require('controlador/usuariosC.php');
     <script src="https://kit.fontawesome.com/84156eae16.js" crossorigin="anonymous"></script>
 </head>
 
-<body background="images/fondo2.jpg">
+<body>
 
     <div class="contenedor-principal ">
-
         <div class="cuerpo">
-
-
             <form action="#" method="post" class="formulario-datos">
                 <div class="tituloIniciarSesion">
                     <h2 style="color:#00d8d6;">INICIAR SESION</h2>
