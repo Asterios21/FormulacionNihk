@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>TIENDA ON LINE</title>
+    <title>COMUNIDAD PALLACCOCHA</title>
 
     <link rel="stylesheet" href="../css/index.css">
     <link rel="shortcut icon" href="icons/namaste.png" type="image/x-icon">
