@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>PROYECTITO</title>
+    <title>COMUNIDAD PALLACCOCHA</title>
 
 
     <link rel="stylesheet" href="../css/menu.css">
