@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <title>TIENDA ON LINE</title>
 
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/crearCuenta.css">
     <link rel="shortcut icon" href="icons/namaste.png" type="image/x-icon">
 
     <script src="https://kit.fontawesome.com/084bfb5838.js"></script>
