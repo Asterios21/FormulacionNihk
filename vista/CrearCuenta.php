@@ -23,29 +23,27 @@
     <div class="contenedor-principal ">
 
         <div class="cuerpo_cuenta">
-
-
             <form action="#" method="post" class="formulario-datos">
-                <div clas="tituloIniciarSesion">
+                <div class="crearCuentaText">
                     <h2 style="color:#00d8d6;">CREAR CUENTA</h2>
                 </div>
-                <div class="DNI">
-                    <input type="text" class="input-DNI" name="input-DNI" placeholder="Ingrese Usuario" maxlength=8>
+                <div class="usuario">
+                    <input type="text" class="input-box" name="input-DNI" placeholder="Ingrese DNI" maxlength=8>
                     <i class="fa-solid fa-user icono"></i>
                 </div>
 
-                <div class="DNI">
-                    <input type="text" class="input-DNI" name="input-DNI" placeholder="Nombre" maxlength=8>
+                <div class="nombre">
+                    <input type="text" class="input-box" name="input-DNI" placeholder="Nombre" maxlength=8>
                     <i class="fa-solid fa-user icono"></i>
                 </div>
 
-                <div class="DNI">
-                    <input type="text" class="input-DNI" name="input-DNI" placeholder="Apellidos" maxlength=8>
+                <div class="apellido">
+                    <input type="text" class="input-box" name="input-DNI" placeholder="Apellidos" maxlength=8>
                     <i class="fa-solid fa-user icono"></i>
                 </div>
 
                 <div class="contraseña">
-                    <input type="password" class="input-contraseña" name="input-contraseña"
+                    <input type="password" class="input-box" name="input-contraseña"
                         placeholder="Ingrese contraseña" maxlength=20>
                     <i class="fa-solid fa-key icono"></i>
                 </div>

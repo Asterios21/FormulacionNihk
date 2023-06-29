@@ -9,7 +9,6 @@
 }
 
 body {
-
     padding: 0;
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -17,16 +16,28 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+.crearCuentaText{
+    margin: 3%;
+}
 .formulario-datos {
     width: 100%;
     height: 100%;
-    text-align: center;
-    margin: auto;
+    position: relative;
 }
-.formulario-datos >*{
-    margin-top: 5%;
+
+.usuario,
+.nombre,
+.apellido,
+.contraseña {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: center;
 }
+
+/* .formulario-datos>* {
+    margin-top: 10px;
+} */
 
 .contenedor-principal {
     display: flex;
@@ -36,49 +47,42 @@ body {
     align-items: center;
 }
 
-.cuerpo {
-    
-   /*  align-items: center; */
-    /* grid-template-columns: 45% 55%; */
+.cuerpo_cuenta {
+
     width: 30%;
-    height: 50%;
+    height: 55%;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 8px #000;
     text-align: center;
 }
 
-.DNI,
-.contraseña {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    text-align: center;
-    width: 100%;
-    height: 15%;
-    /* margin-top: -20px; */
-}
 
-.input-DNI,
-.input-contraseña {
+.input-box {
     background-color: white;
-    position: absolute;
+    position: relative;
     width: 80%;
-    height: 100%;
+    height: 80%;
+    margin-left: 5%;
     font-size: 15px;
-    line-break: 50px;   
     border-radius: 10px;
     padding-left: 50px;
-    border: 1px solid #6c757d;
+    border: 1px solid #00d8d6;
 }
+
+/* .input-box:focus {
+    width: 100%;
+    height: 10%;
+    border: 0;
+    outline: 1px solid #00d8d6;
+} */
 
 #boton-ingresar {
     margin: 20px;
-    width: 80%;
+    width: 84%;
     height: 10%;
     border-radius: 5px;
-                
+    border: none;
     background-color: #00d8d6;
 
     font-family: 'Poppins', sans-serif;
@@ -88,21 +92,23 @@ body {
 
 #boton-ingresar:hover {
     cursor: pointer;
-    background-color: #c7f6d4;
+    background-color: #4afde7;
 }
 
 .icono {
     position: absolute;
     font-size: 18px;
-    left: 12%;
-}   
+    left: 8%;
+}
 
 .recuperar_contraseña>a {
     color: #00d8d6;
     text-decoration: none;
 
 }
-.cuerpo_cuenta {    
+
+/* .cuerpo_cuenta {
+
     align-items: center;
     grid-template-columns: 45% 55%;
     width: 30%;
@@ -110,4 +116,4 @@ body {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 8px #000;
-}
+} */
