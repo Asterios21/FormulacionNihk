@@ -15,9 +15,13 @@ if(isset($_GET["modulo"])){
             break;
 
         case 'deudas':
-            include("secretario/modulo_PobladoresV.php");
+            include("tesorero/modulo_DeudasV.php");
             break;    
-        
+
+        case 'usuarios':
+            include("secretario/modulo_UsuariosV.php");
+            break;    
+            
         default:
             include("secretario/modulo_PobladoresV.php");
             break;
@@ -26,4 +30,3 @@ if(isset($_GET["modulo"])){
 }else{
     include("secretario/modulo_PobladoresV.php");
 }
-?>

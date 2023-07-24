@@ -7,10 +7,9 @@
 
 
     <link rel="stylesheet" href="../css/menu.css">
-    <link rel="stylesheet" href="../styles/menu.css">
     <link rel="shortcut icon" href="../icons/namaste.png" type="image/x-icon">
 
-    <script src="../scripts/sweetalert2.all.min.js"></script>
+    
     <script src="https://kit.fontawesome.com/84156eae16.js" crossorigin="anonymous"></script>
 </head>
 
@@ -42,11 +41,14 @@
                 </div>
 
                 <div class="opcion">
-
                     <i class="fa-solid fa-list-check"></i>
                     <a href="usuariosV.php?modulo=pobladores">POBLADORES</a>
                 </div>
 
+                <div class="opcion">
+                    <i class="fa-solid fa-list-check"></i>
+                    <a href="usuariosV.php?modulo=usuarios">USUARIOS</a>
+                </div>
 
                 <div class="boton_salir">
                     <a href="../controlador/cerrarSesion.php">SALIR</a>
