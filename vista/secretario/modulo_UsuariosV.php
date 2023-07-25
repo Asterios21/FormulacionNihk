@@ -67,9 +67,9 @@
                         <label for="modal_apellidos">APELLIDOS: </label>
                         <input type="text" name='modal_apellidos' id='modal_apellidos' required>
                         <select class="form-select form-select-sm" aria-label=".form-select-sm example" name='modal_rol' id='modal_rol'>
-                            <option value="sin rol" selected>sin rol</option>
-                            <option value="secretario">secretario</option>
-                            <option value="tesorero">tesorero</option>
+                            <option value="Sin rol" selected>Sin rol</option>
+                            <option value="Secretario">Secretario</option>
+                            <option value="Tesorero">Tesorero</option>
                         </select>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" name='modal_estado' id="modal_estado" checked>

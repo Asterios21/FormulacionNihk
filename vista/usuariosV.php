@@ -27,7 +27,7 @@
 
                 <div class="opcion">
                     <i class="fa-solid fa-list-check"></i>
-                    <a href="usuariosV.php?modulo=acta">CREAR ACTA</a>
+                    <a href="usuariosV.php?modulo=actas">CREAR ACTA</a>
                 </div>
 
                 <div class="opcion">

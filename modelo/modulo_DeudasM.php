@@ -1,17 +1,30 @@
 <?php
 require('../modelo/conexionBD.php');
 edit();
-function verPoblador($input)
+function verDeudas($input)
 {
     if ($input != null) {
-        $query = "SELECT dni,rol,estado,nombres,apellidos,celular FROM usuario where dni like '%$input%' or rol like '%$input%' or estado like '%$input%' or nombres like '%$input%' or apellidos like '%$input%' or celular like '%$input%'";
-        $res = conexionBD::conexion()->query($query);
+        $query = "SELECT dni,estado,monto,fecha_pago,descripcion,numero_acta FROM cuotas where dni like '%$input%' or estado like '%$input%' or monto like '%$input%' or fecha_pago like '%$input%' or descripcion like '%$input%' or numero_acta like '%$input%'";        $res = conexionBD::conexion()->query($query);
         return $res;
     } else {
-        $query = "SELECT dni,rol,estado,nombres,apellidos,celular FROM usuario";
+        $query = "SELECT dni,estado,monto,fecha_pago,descripcion,numero_acta FROM cuotas";
         $res = conexionBD::conexion()->query($query);
         return $res;
     }
+}
+
+function verActa($numeroActa){
+    $query="SELECT asunto_acta FROM acta WHERE numero_acta='$numeroActa'";
+    $res=conexionBD::conexion()->query($query);
+    $result=$res->fetch_assoc();
+    return $result['asunto_acta'];
+}
+function verDeudor($dni){
+    $query="SELECT nombres,apellidos FROM poblador WHERE dni='$dni'";
+    $res=conexionBD::conexion()->query($query);
+    $result=$res->fetch_assoc();
+    $nombreCompleto=$result['nombres'].' '.$result['apellidos'];
+    return $nombreCompleto;
 }
 
 function edit(){
@@ -26,5 +39,3 @@ function edit(){
         echo json_encode( mysqli_query(conexionBD::conexion(),$query));
     }
 }
-?>
-

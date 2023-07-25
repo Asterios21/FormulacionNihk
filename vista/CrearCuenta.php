@@ -19,9 +19,7 @@
 </head>
 
 <body background="../images/fondo2.jpg">
-
     <div class="contenedor-principal ">
-
         <div class="cuerpo_cuenta">
             <form action="#" method="post" class="formulario-datos">
                 <div class="crearCuentaText">
@@ -31,36 +29,25 @@
                     <input type="text" class="input-box" name="input-DNI" placeholder="Ingrese DNI" maxlength=8>
                     <i class="fa-solid fa-user icono"></i>
                 </div>
-
                 <div class="nombre">
                     <input type="text" class="input-box" name="input-DNI" placeholder="Nombre" maxlength=8>
                     <i class="fa-solid fa-user icono"></i>
                 </div>
-
                 <div class="apellido">
                     <input type="text" class="input-box" name="input-DNI" placeholder="Apellidos" maxlength=8>
                     <i class="fa-solid fa-user icono"></i>
                 </div>
-
                 <div class="contraseña">
-                    <input type="password" class="input-box" name="input-contraseña"
-                        placeholder="Ingrese contraseña" maxlength=20>
+                    <input type="password" class="input-box" name="input-contraseña" placeholder="Ingrese contraseña" maxlength=20>
                     <i class="fa-solid fa-key icono"></i>
                 </div>
-
                 <button style="color:white;" id="boton-ingresar">CREAR CUENTA</button>
-
                 <div class="recuperar_contraseña">
                     <a href="../index.php">Iniciar Sesion </a>
                 </div>
-
             </form>
-
         </div>
-
     </div>
-
-
 </body>
 
 <?php

@@ -3,7 +3,7 @@
 if(isset($_GET["modulo"])){
     switch ($_GET["modulo"]){
         case 'actas':
-            include("secretario/modulo_PobladoresV.php");
+            include("secretario/actasVista.php");
             break;
         
         case 'asistencias':
