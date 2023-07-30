@@ -11,16 +11,18 @@ if($num_rows>0){
     while($row=$verDeuda->fetch_assoc()){
         $dniClass=$row['dni'];
         $estado=$row['estado']!=0?'Activo':'Inactivo';
+        $iterable=$row['estado']!=0?'':'Disabled';
         $html .="<tr class='$dniClass'>";
+        $html .='<td>'.$row['dni'].'</td>';
         $html .='<td>'.verDeudor($row['dni']).'</td>';
         $html .='<td>'.$estado.'</td>';
-        $html .='<td> S/. '.$row['monto'].'</td>';
+        $html .='<td>'.$row['monto'].'</td>';
         $html .='<td>'.$row['fecha_pago'].'</td>';
         $html .='<td>'.$row['descripcion'].'</td>';
         $html .='<td>'.verActa($row['numero_acta']).'</td>';
         $html .=
         "<td> 
-                <button type='button'  name='edit' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#staticBackdrop' onclick='edit($dniClass)'>Pagar</button>
+                <button type='button'  name='edit' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#staticBackdrop' onclick='edit($dniClass)' id='buttonPagar' $iterable >Pagar</button>
         </td>";
         $html .='</tr>';
     }

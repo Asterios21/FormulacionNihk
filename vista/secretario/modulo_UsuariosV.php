@@ -129,7 +129,7 @@
             let modal_estado = document.getElementById('modal_estado')
 
             if (modal_dni.value.length != 0 && modal_nombres.value.length != 0 && modal_apellidos.value.length != 0) {
-                fetch('../modelo/modulo_usuariosM.php', {
+                fetch('../modelo/modulo_UsuariosM.php', {
                     method: 'POST',
                     body: data
                 }).then(res => res.json()).then(data => {

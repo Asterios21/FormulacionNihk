@@ -24,10 +24,10 @@ function validarUsuarioC()
         $_SESSION['nombres'] = $res['nombres'];
         $_SESSION['apellidos'] = $res['apellidos'];
 
-        if ($res['rol'] == "secretario") {
+        if ($res['rol'] == "Secretario") {
           header("location:vista/usuariosV.php");
 
-        } elseif ($res['rol'] == "tesorero"){
+        } elseif ($res['rol'] == "Tesorero"){
           header("location:vista/tesoreroV.php");
         }
 
