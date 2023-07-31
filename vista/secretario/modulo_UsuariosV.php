@@ -59,6 +59,7 @@
                 </div>
                 <div class="modal-body">
                     <form action="" id='editForm'>
+                        
                         <label for="modal_dni">DNI: </label>
                         <input type="text" name='modal_dni' id='modal_dni' required>
                         <input type="text" name='modal_dni_hidden' id='modal_dni_hidden' hidden>

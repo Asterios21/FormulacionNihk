@@ -26,20 +26,24 @@
                     <h2 style="color:#00d8d6;">CREAR CUENTA</h2>
                 </div>
                 <div class="usuario">
-                    <input type="text" class="input-box" name="input-DNI" placeholder="Ingrese DNI" maxlength=8>
-                    <i class="fa-solid fa-user icono"></i>
+                    <input type="text" class="input-box" name="input-dni" onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder="Ingrese DNI" maxlength=8 required>
+                    <i class="fa-solid fa-id-card icono"></i>
                 </div>
                 <div class="nombre">
-                    <input type="text" class="input-box" name="input-DNI" placeholder="Nombre" maxlength=8>
+                    <input type="text" class="input-box" name="input-nombre" placeholder="Nombre" maxlength=40 required>
                     <i class="fa-solid fa-user icono"></i>
                 </div>
                 <div class="apellido">
-                    <input type="text" class="input-box" name="input-DNI" placeholder="Apellidos" maxlength=8>
+                    <input type="text" class="input-box" name="input-apellido" placeholder="Apellidos" maxlength=40 required>
                     <i class="fa-solid fa-user icono"></i>
                 </div>
                 <div class="contraseña">
-                    <input type="password" class="input-box" name="input-contraseña" placeholder="Ingrese contraseña" maxlength=20>
+                    <input type="password" class="input-box" name="input-password" placeholder="Ingrese contraseña" maxlength=20 required>
                     <i class="fa-solid fa-key icono"></i>
+                </div>
+                <div class="celular">
+                    <input type="text" class="input-box" name="input-password" onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder="Ingrese numero de celular" minlength="9" maxlength=9 required>
+                    <i class="fa-solid fa-phone icono"></i>
                 </div>
                 <button style="color:white;" id="boton-ingresar">CREAR CUENTA</button>
                 <div class="recuperar_contraseña">
@@ -51,6 +55,8 @@
 </body>
 
 <?php
-//$s = validarUsuarioC();
-//echo "$s";
+require '../controlador/crearCuentaC.php';
+if(isset($_POST['input-dni'])){
+    conexionBD::conexion();
+}
 ?>

@@ -43,12 +43,12 @@
                 </div>
                 <div class="modal-body">
                     <form action="" id='genCuota'>
-                    <input type="text" value='genCuota' id="flagGenCuota" hidden>
+                        <input type="text" value='genCuota' id="flagGenCuota" hidden>
                         <select class="form-select form-select-sm" aria-label=".form-select-sm example" name='modal_tipoCuota' id='modal_tipoCuota' onchange='tipoCuota()'>
                             <option value="Cuota" selected>Cuota</option>
                             <option value="Deuda">Deuda</option>
                         </select>
-                        <div name='cuotaBox' id='cuotaBox' >
+                        <div name='cuotaBox' id='cuotaBox'>
                             <label for="modal_idActa">NUMERO DE ACTA</label>
                             <input type="number" name="modal_idActa" id="modal_idActa">
                         </div>
@@ -59,7 +59,7 @@
                         <label for="modal_nuevoMonto">MONTO: </label>
                         <input type="number" name='modal_nuevoMonto' id='modal_nuevoMonto'>
                         <label for="modal_fechaPago">FECHA DE PAGO: </label>
-                        <input type="datetime-local" name='modal_fechaPago' id='modal_fechaPago'>
+                        <input type="datetime-local" name='modal_fechaPago' id='modal_fechaPago' onchange="fechaMinima()">
                         <label for="modal_descripcion">DESCRIPCION: </label>
                         <textarea id='modal_descripcion' name='modal_descripcion'></textarea>
                     </form>
@@ -100,6 +100,17 @@
         </div>
     </div>
     <script>
+        function fechaMinima() {
+            var UserDate = document.getElementById("modal_fechaPago").value;
+            var ToDate = new Date();
+            console.log(ToDate.toISOString());
+            if (new Date(UserDate).toISOString() <= ToDate.toISOString()) {
+                alert("La fecha debe ser mayor a (actual): " + ToDate);
+                return false;
+            }
+            return true;
+        }
+
         function tipoCuota() {
             modal_tipoCuota = document.getElementById('modal_tipoCuota')
             cuotaBox = document.getElementById('cuotaBox')
@@ -168,12 +179,16 @@
             let data = new FormData(genCuota);
             let nuevoMonto = document.getElementById('modal_nuevoMonto')
             if (nuevoMonto.value.length != 0) {
-                fetch('../modelo/modulo_DeudasM.php', {
-                    method: 'POST',
-                    body: data
-                }).then(res => res.json()).then(data => {
-                    console.log(data)
-                })
+                if (fechaMinima()) {
+                    fetch('../modelo/modulo_DeudasM.php', {
+                        method: 'POST',
+                        body: data
+                    }).then(res => res.json()).then(data => {
+                        console.log(data)
+                    })
+                }
+            } else {
+                alert('Ingrese un monto valido');
             }
         }
     </script>

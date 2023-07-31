@@ -14,7 +14,6 @@ function validarUsuarioC()
     $contraseña = $_POST['input-contraseña'];
 
     $hash = password_hash($contraseña, PASSWORD_DEFAULT);
-    echo $hash;
     $res = validarUsuarioM($DNI);
     if ($res) {
       if (password_verify($contraseña, $res['contrasenia'])) {
