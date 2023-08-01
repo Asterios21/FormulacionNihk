@@ -42,7 +42,7 @@
                     <i class="fa-solid fa-key icono"></i>
                 </div>
                 <div class="celular">
-                    <input type="text" class="input-box" name="input-password" onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder="Ingrese numero de celular" minlength="9" maxlength=9 required>
+                    <input type="text" class="input-box" name="input-celular" onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder="Ingrese numero de celular" minlength="9" maxlength=9 required>
                     <i class="fa-solid fa-phone icono"></i>
                 </div>
                 <button style="color:white;" id="boton-ingresar">CREAR CUENTA</button>
@@ -56,7 +56,5 @@
 
 <?php
 require '../controlador/crearCuentaC.php';
-if(isset($_POST['input-dni'])){
-    conexionBD::conexion();
-}
+
 ?>

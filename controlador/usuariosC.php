@@ -13,7 +13,6 @@ function validarUsuarioC()
     $DNI = $_POST['input-DNI'];
     $contraseña = $_POST['input-contraseña'];
 
-    $hash = password_hash($contraseña, PASSWORD_DEFAULT);
     $res = validarUsuarioM($DNI);
     if ($res) {
       if (password_verify($contraseña, $res['contrasenia'])) {
@@ -37,4 +36,4 @@ function validarUsuarioC()
 
 }
 
-?>'
+?>
