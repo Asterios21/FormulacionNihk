@@ -3,7 +3,7 @@ require('../modelo/conexionBD.php');
 date_default_timezone_set('America/Lima');
 
 realizarPago();
-if (isset($_POST['modal_tipoCuota'])) {
+if (isset($_POST['modal_nuevoMonto'])) {
     generarCuotaDeuda();
 }
 function verificarFechasActas()
@@ -58,6 +58,19 @@ function verDeudas($input)
     }
 }
 
+function verPagos($input){
+    if ($input != null) {
+        $query = "SELECT dni,fecha_mod,total FROM pagos where dni like '%$input%'";
+        
+        $res = conexionBD::conexion()->query($query);
+        return $res;
+    } else {
+        $query = "SELECT dni,fecha_mod,total FROM pagos";
+        $res = conexionBD::conexion()->query($query);
+        return $res;
+    }
+}
+
 function verActa($numeroActa)
 {
     $query = "SELECT asunto_acta FROM acta WHERE numero_acta='$numeroActa'";
@@ -80,20 +93,20 @@ function realizarPago()
         $monto = $_POST['modal_monto'];
         $montoPagar = $_POST['modal_montoPagar'];
         $newMonto = $monto - $montoPagar;
-        $fecha_actual = date("Y-m-d h:i:s");
-        $query = "UPDATE cuotas SET monto='$newMonto',fecha_pago='$fecha_actual' WHERE dni='$dni'";
+        $fecha_actual = date("Y-m-d h:i:s",time());
+        $query = "UPDATE pagos SET total='$newMonto',fecha_mod='$fecha_actual' WHERE dni='$dni'";
         echo json_encode(mysqli_query(conexionBD::conexion(), $query));
     }
 }
 
 function generarCuotaDeuda()
 {
-    if (isset($_POST['modal_tipoCuota']) &&  isset($_POST['modal_nuevoMonto'])) {
+    if (isset($_POST['modal_nuevoMonto'])) {
 
-        if ($_POST['modal_tipoCuota'] == 'Cuota') {
+        /* if ($_POST['modal_tipoCuota'] == 'Cuota') { */
             $numeroActa = $_POST['modal_idActa'];
             $monto = $_POST['modal_nuevoMonto'];
-            $fechaPago = date('Y-m-d H:i:s', strtotime($_POST['modal_fechaPago']));
+            $fechaPago = date('Y-m-d H:i:s', time());
             $descripcion = $_POST['modal_descripcion'];
             $pob = mysqli_query(conexionBD::conexion(), 'SELECT dni FROM poblador');
             $pobRows = $pob->num_rows;
@@ -102,17 +115,32 @@ function generarCuotaDeuda()
                 $res = $pob->fetch_assoc();
                 $dni = $res['dni'];
                 mysqli_query(conexionBD::conexion(), "INSERT INTO cuotas VALUES(null,'$dni',1,'$monto','$fechaPago','$descripcion','$numeroActa')");
+                $pago=mysqli_query(conexionBD::conexion(),"SELECT dni FROM pagos WHERE dni='$dni'");
+                $pagoDni=$pago->fetch_assoc();
+                if(is_null($pagoDni)){
+                    $timeNow=date('Y-m-d H:i:s',time());
+                    $query="INSERT INTO pagos VALUES('$dni','$timeNow','$monto')";
+                    mysqli_query(conexionBD::conexion(),$query);
+                }
+                else{
+                    
+                    $timeNow=date('Y-m-d H:i:s',time());
+                    $queryTotal=mysqli_query(conexionBD::conexion(),"SELECT total FROM pagos WHERE dni='$dni'");
+                    $totalPrevio=$queryTotal->fetch_assoc();
+                    $totalFinal=$monto+$totalPrevio['total'];
+                    mysqli_query(conexionBD::conexion(),"UPDATE pagos SET total='$totalFinal',fecha_mod='$timeNow' WHERE dni='$dni'");
+                }
             }
             echo json_encode('hola');
-        }
-        if ($_POST['modal_tipoCuota'] == 'Deuda') {
+       /*  } */
+        /* if ($_POST['modal_tipoCuota'] == 'Deuda') {
             $idPoblador = $_POST['modal_idPoblador'];
             $monto = $_POST['modal_nuevoMonto'];
             $fechaPago = date('Y-m-d H:i:s', strtotime($_POST['modal_fechaPago']));;
             $descripcion = $_POST['modal_descripcion'];
 
             echo json_encode(mysqli_query(conexionBD::conexion(), "INSERT INTO cuotas VALUES(null,'$idPoblador',1,'$monto','$fechaPago','$descripcion',null)"));
-        }
+        } */
     }
 }
 ?>

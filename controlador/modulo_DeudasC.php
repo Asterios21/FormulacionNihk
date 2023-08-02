@@ -1,12 +1,41 @@
 <?php
 require '../modelo/modulo_DeudasM.php';
-verificarFechasActas();
+//verificarFechasActas();
 $input=isset($_POST['input']) ? conexionBD::conexion()->real_escape_string($_POST['input']):null;
-$verDeuda=verDeudas($input);
-$num_rows=$verDeuda->num_rows;
+$verPagos=verPagos($input);
+$num_rows=$verPagos->num_rows;
 $html='';
 
 
+if($num_rows>0){
+    while($row=$verPagos->fetch_assoc()){
+        $dniClass=$row['dni'];
+        $html .="<tr class='$dniClass'>";
+        $html .='<td>'.$row['dni'].'</td>';
+        $html .='<td>'.$row['fecha_mod'].'</td>';
+        $html .='<td>'.$row['total'].'</td>';
+        $html .=
+        "<td> 
+                <button type='button'  name='edit' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#staticBackdrop' onclick='edit($dniClass)' id='buttonPagar'>Pagar</button>
+        </td>";
+        $html .=
+        "<td>                
+                <form id='verCuota'>
+                <input name='view' value='$dniClass' hidden>
+                <button type='button'   class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#staticBackdrop3' onclick='verCuotas()' id='buttonVer'>Ver</button>
+                </form>
+        </td>";
+        $html .='</tr>';
+    }
+}
+
+else{
+    $html.='<tr>';
+    $html.='<td colspan="7">Sin Resultados</td>';
+    $html.='</tr>';
+}
+
+/* 
 if($num_rows>0){
     while($row=$verDeuda->fetch_assoc()){
         $dniClass=$row['dni'];
@@ -42,7 +71,7 @@ else{
     $html.='<tr>';
     $html.='<td colspan="7">Sin Resultados</td>';
     $html.='</tr>';
-}
+} */
 echo json_encode($html,JSON_UNESCAPED_UNICODE);
 
 ?>
