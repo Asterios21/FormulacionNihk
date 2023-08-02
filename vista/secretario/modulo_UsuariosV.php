@@ -14,9 +14,9 @@
         <input type="text" name="input" id="input">
     </form>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
         <i class="fa-sharp fa-solid fa-plus"></i> Agregar usuario
-    </button>
+    </button> -->
     <table class="table table-striped">
         <thead>
             <th>DNI</th>
